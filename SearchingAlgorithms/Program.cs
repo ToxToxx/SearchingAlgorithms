@@ -13,50 +13,33 @@
             int result = LinearSearch(array, target);
 
             if (result != -1)
-            {
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
-            }
             else
-            {
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
-            }
 
             //бинарный поиск
-
             int binarySearchResult = BinarySearch(array, target);
 
             if (binarySearchResult != -1)
-            {
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
-            }
             else
-            {
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
-            }
 
             //тернарный поиск
             int ternarySearchResult = TernarySearch(array, target);
 
             if (ternarySearchResult != -1)
-            {
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
-            }
             else
-            {
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
-            }
 
             //экспоненциальный поиск
             int exponentialySearchResult = ExponentialSearch(array, target);
 
             if (exponentialySearchResult != -1)
-            {
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
-            }
             else
-            {
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
-            }
         }
 
         static int LinearSearch(int[] array, int target)
