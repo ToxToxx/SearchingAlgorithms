@@ -40,6 +40,14 @@
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
+
+            //поиск фибоначи
+            int fibonacciSearchResult = FibonacciSearch(array, target);
+
+            if (fibonacciSearchResult != -1)
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+            else
+                Console.WriteLine($"Элемент {target} не найден в массиве.");
         }
 
         static int LinearSearch(int[] array, int target)
@@ -174,6 +182,86 @@
             int right = Math.Min(bound, array.Length - 1);
 
             return BinarySearch(array, target, left, right);
+        }
+
+        static int FibonacciSearch(int[] array, int target)
+        {
+            int counter = 0;
+            int fibMMinus2 = 0;
+            int fibMMinus1 = 1; 
+            int fibM = fibMMinus1 + fibMMinus2;
+
+            while (fibM < array.Length)
+            {
+                fibMMinus2 = fibMMinus1;
+                fibMMinus1 = fibM;
+                fibM = fibMMinus1 + fibMMinus2;
+            }
+
+            int offset = -1;
+
+            while (fibM > 1)
+            {
+                counter++;
+                int i = Math.Min(offset + fibMMinus2, array.Length - 1);
+
+                if (array[i] < target)
+                {
+                    fibM = fibMMinus1;
+                    fibMMinus1 = fibMMinus2;
+                    fibMMinus2 = fibM - fibMMinus1;
+                    offset = i;
+                }
+                else if (array[i] > target)
+                {
+                    fibM = fibMMinus2;
+                    fibMMinus1 = fibMMinus1 - fibMMinus2;
+                    fibMMinus2 = fibM - fibMMinus1;
+                }
+                else
+                {
+                    Console.WriteLine("Количество шагов: " + counter);
+                    return i; // Возвращаем индекс элемента, если он найден
+                }
+            }
+
+            if (fibMMinus1 == 1 && array[offset + 1] == target)
+            {
+                Console.WriteLine("Количество шагов: " + counter);
+                return offset + 1;
+            }
+
+            return -1; // Возвращаем -1, если элемент не найден
+        }
+
+        static int InterpolationSearch(int[] array, int target)
+        {
+            int counter = 0;
+            int left = 0;
+            int right = array.Length - 1;
+
+            while (left <= right && target >= array[left] && target <= array[right])
+            {
+                counter++;
+                // Формула интерполяции для приближенного расчета местоположения целевого элемента
+                int pos = left + ((target - array[left]) * (right - left)) / (array[right] - array[left]);
+
+                if (array[pos] == target)
+                {
+                    Console.WriteLine("Количество шагов: " + counter);
+                    return pos; // Возвращаем индекс элемента, если он найден
+                }
+                else if (array[pos] < target)
+                {
+                    left = pos + 1;
+                }
+                else
+                {
+                    right = pos - 1;
+                }
+            }
+            Console.WriteLine("Количество шагов: " + counter);
+            return -1; // Возвращаем -1, если элемент не найден
         }
     }
 
