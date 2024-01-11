@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             //Линейный поиск
-            int[] array = { 2, 5, 8, 12, 16, 23, 38, 45, 50 };
+            int[] array = { 2, 4, 8, 12, 16, 24, 48, 64, 128 };
 
             Console.Write("Введите элемент для линейного поиска поиска: ");
             int target = Convert.ToInt32(Console.ReadLine());
@@ -45,6 +45,14 @@
             int fibonacciSearchResult = FibonacciSearch(array, target);
 
             if (fibonacciSearchResult != -1)
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+            else
+                Console.WriteLine($"Элемент {target} не найден в массиве.");
+
+            //поиск интерполяционный
+            int interpolationSearch = InterpolationSearch(array, target);
+
+            if (interpolationSearch != -1)
                 Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
@@ -186,6 +194,7 @@
 
         static int FibonacciSearch(int[] array, int target)
         {
+            Console.WriteLine("Фибоначчи поиск ");
             int counter = 0;
             int fibMMinus2 = 0;
             int fibMMinus1 = 1; 
@@ -236,6 +245,7 @@
 
         static int InterpolationSearch(int[] array, int target)
         {
+            Console.WriteLine("Интерполяционный поиск ");
             int counter = 0;
             int left = 0;
             int right = array.Length - 1;
