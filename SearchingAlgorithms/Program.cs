@@ -21,7 +21,7 @@
             int binarySearchResult = BinarySearch(array, target);
 
             if (binarySearchResult != -1)
-                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {binarySearchResult}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
 
@@ -29,7 +29,7 @@
             int ternarySearchResult = TernarySearch(array, target);
 
             if (ternarySearchResult != -1)
-                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {ternarySearchResult}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
 
@@ -37,7 +37,7 @@
             int exponentialySearchResult = ExponentialSearch(array, target);
 
             if (exponentialySearchResult != -1)
-                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {exponentialySearchResult}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
 
@@ -45,7 +45,7 @@
             int fibonacciSearchResult = FibonacciSearch(array, target);
 
             if (fibonacciSearchResult != -1)
-                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {fibonacciSearchResult}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
 
@@ -53,14 +53,14 @@
             int interpolationSearch = InterpolationSearch(array, target);
 
             if (interpolationSearch != -1)
-                Console.WriteLine($"Элемент {target} найден в массиве по индексу {result}.");
+                Console.WriteLine($"Элемент {target} найден в массиве по индексу {interpolationSearch}.");
             else
                 Console.WriteLine($"Элемент {target} не найден в массиве.");
         }
 
         static int LinearSearch(int[] array, int target)
         {
-            Console.WriteLine("Линейный поиск ");
+            Console.WriteLine(" Линейный поиск ");
             int counter = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -76,7 +76,7 @@
         }
         static int BinarySearch(int[] array, int target)
         {
-            Console.WriteLine("Бинарный поиск ");
+            Console.WriteLine(" Бинарный поиск ");
             int counter = 0;
 
             int left = 0;
@@ -106,7 +106,7 @@
         }
         static int TernarySearch(int[] array, int target)
         {
-            Console.WriteLine("Тернарный поиск ");
+            Console.WriteLine(" Тернарный поиск ");
             int counter = 0;
 
             int left = 0;
@@ -178,7 +178,7 @@
 
         static int ExponentialSearch(int[] array, int target)
         {
-            Console.WriteLine("Экспоненциальный поиск ");
+            Console.WriteLine(" Экспоненциальный поиск ");
             int bound = 1;
 
             while (bound < array.Length && array[bound] < target)
@@ -194,7 +194,7 @@
 
         static int FibonacciSearch(int[] array, int target)
         {
-            Console.WriteLine("Фибоначчи поиск ");
+            Console.WriteLine(" Фибоначчи поиск ");
             int counter = 0;
             int fibMMinus2 = 0;
             int fibMMinus1 = 1; 
@@ -245,7 +245,7 @@
 
         static int InterpolationSearch(int[] array, int target)
         {
-            Console.WriteLine("Интерполяционный поиск ");
+            Console.WriteLine(" Интерполяционный поиск ");
             int counter = 0;
             int left = 0;
             int right = array.Length - 1;
